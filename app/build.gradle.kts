@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.videoplayernativeapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.videoplayernativeapp"
@@ -64,8 +64,8 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation( "androidx.databinding:databinding-runtime:8.6.0")
-    kapt ("com.android.databinding:compiler:4.0.1")
+    implementation( libs.androidx.databinding.runtime)
+//    kapt (libs.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

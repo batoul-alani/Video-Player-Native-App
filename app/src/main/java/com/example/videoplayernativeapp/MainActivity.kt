@@ -20,11 +20,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
+        databinding = ActivaityMainBinding.inflate(layoutInflater)
+        setContentView(databinding.root)
 
-        }
+        val videoView = findViewById<VideoView>(databinding.testView.id)
+        // Creating MediaController
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(videoView)
 
-        val uri : Uri = parse("android.resource://" + packageName + "/" + "test")
+        // Specify the location of the media file
+        val uri : Uri = parse("android.resource://" + packageName + "/raw/" + "test")
+
+        // Setting the mediaController and the URI then start the videoView
+        videoView.setMediaController(mediaController)
+        videoView.setVideoURI(uri)
+        videoView.requestFocus()
+        videoView.start()
     }
 }
