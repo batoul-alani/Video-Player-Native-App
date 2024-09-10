@@ -1,6 +1,7 @@
 package com.example.videoplayernativeapp
 
 // to access to the filesystem
+import android.app.Activity
 import android.net.Uri
 import android.net.Uri.*
 import android.widget.MediaController
@@ -13,7 +14,7 @@ import androidx.activity.enableEdgeToEdge
 
 import com.example.videoplayernativeapp.databinding.ActivaityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
 
     private lateinit var  appBarConfiguration: AppBarConfiguration
     private lateinit var databinding: ActivaityMainBinding
