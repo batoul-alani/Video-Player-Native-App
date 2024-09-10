@@ -1,47 +1,30 @@
 package com.example.videoplayernativeapp
 
+// to access to the filesystem
+import android.net.Uri
+import android.net.Uri.*
+import android.widget.MediaController
+import android.widget.VideoView
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.videoplayernativeapp.ui.theme.VideoPlayerNativeAppTheme
 
-class MainActivity : ComponentActivity() {
+import com.example.videoplayernativeapp.databinding.ActivaityMainBinding
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var  appBarConfiguration: AppBarConfiguration
+    private lateinit var databinding: ActivaityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            VideoPlayerNativeAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+
         }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    VideoPlayerNativeAppTheme {
-        Greeting("Android")
+        val uri : Uri = parse("android.resource://" + packageName + "/" + "test")
     }
 }
